@@ -1,5 +1,3 @@
-# goit-react-hw-03-phonebook
-
 1. npx create-react-app .
 2. npm install --save-dev prettier eslint
 3. npx mrm@2 lint-staged
