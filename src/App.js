@@ -6,6 +6,7 @@ import Button from "./components/Button";
 import Loader from "react-loader-spinner";
 import Modal from "./components/Modal";
 import fetchImg from "./services/Pixabay";
+// import { ToastContainer, toast } from "react-toastify";
 import "./App.css";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
@@ -15,7 +16,7 @@ class App extends Component {
     page: 1,
     gallery: [],
     loading: false,
-    showModal: false,
+    showModal: false, // модалка открывается по state того компонента который хочет его открыть
     largeImageURL: "",
     alt: null,
     error: null,
@@ -72,6 +73,7 @@ class App extends Component {
   };
 
   toggleModal = () => {
+    // метод открытия/закрытия модального окна
     this.setState(({ showModal }) => ({
       showModal: !showModal,
     }));
@@ -101,12 +103,12 @@ class App extends Component {
         )}
         <ImageGallery gallery={gallery} onSetImgInfo={this.setImgInfo} />
         {gallery.length > 0 && !loading && <Button onLoadMore={this.getImgs} />}
-
-        {showModal && (
+        {showModal && ( // если showModal = true, рендерим модалку
           <Modal onClose={this.toggleModal}>
             <img src={largeImageURL} alt={alt} width="800" height="600" />
           </Modal>
         )}
+        {/* <ToastContainer /> */}
       </Container>
     );
   }

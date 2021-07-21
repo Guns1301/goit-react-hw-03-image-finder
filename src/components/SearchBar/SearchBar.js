@@ -4,11 +4,11 @@ import s from "./SearchBar.module.css";
 
 class SearchBar extends Component {
   state = {
-    query: "",
+    query: "", // поле которое хранит значение input
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault(); //что бы не перезагрузилась страница. Обязательно
     const { query } = this.state;
 
     if (query.trim() === "") {
@@ -20,6 +20,7 @@ class SearchBar extends Component {
   };
 
   handleValueChange = (e) => {
+    // метод который обновляет значение input при каждом изменении
     this.setState({ query: e.currentTarget.value });
   };
 
@@ -39,8 +40,8 @@ class SearchBar extends Component {
               autoComplete="off"
               autoFocus
               placeholder="Search images and photos"
-              value={query}
-              onChange={this.handleValueChange}
+              value={query} // устанавливает значение input взависимости от state
+              onChange={this.handleValueChange} // тут привязываем метод который обновляет значение state
             />
           </form>
         </header>
